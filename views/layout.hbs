@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+      <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+  </head>
+  <body id="override">
+    <header>
+        <!-- https://www.w3schools.com/bootstrap4/bootstrap_navbar.asp -->
+          <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+              <!-- Brand -->
+              <a class="navbar-brand" href="/">Pizza</a>
+
+              <!-- Toggler/collapsibe Button -->
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <!-- Navbar links -->
+              <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                  <ul class="navbar-nav">
+                      <li class="nav-item">
+                          <a class="nav-link" href="/">Home</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="/orders">Orders</a>
+                      </li>
+                  </ul>
+              </div>
+          </nav>
+    </header>
+
+    {{{body}}}
+
+    <footer>
+        <p>Joshua George - 200416927</p>
+    </footer>
+
+  </body>
+
+  <script src="javascripts/bootstrap.min.js"/>
+  <!-- add jquery that we downloaded from npm -->
+  <script src="/javascripts/jquery.min.js"></script>
+
+  <!-- custom js -->
+  <script src="/javascripts/scripts.js"></script>
+</html>
