@@ -31,6 +31,17 @@ router.get('/add', (req, res) => {
 
 /* POST orders/add form submission */
 router.post('/add', (req, res) => {
+    var costPer;
+    if(req.body.size == "S"){
+        costPer = 10;
+    }
+    if(req.body.size == "M"){
+        costPer = 15;
+    }
+    if(req.body.size == "L"){
+        costPer = 20;
+    }
+    var hold = costPer * req.body.quantity;
     // save a new order on mongoose or catch trying
     Order.create({
         firstName: req.body.firstName,
@@ -38,7 +49,7 @@ router.post('/add', (req, res) => {
         type: req.body.type,
         size: req.body.size,
         quantity: req.body.quantity,
-        total: req.body.total
+        total: hold
     }, (err, order) => {
         if (err) {
             console.log(err)
@@ -90,6 +101,18 @@ router.get('/edit/:_id', (req, res) => {
 router.post('/edit/:_id', (req, res) => {
     var _id = req.params._id
 
+    var costPer;
+    if(req.body.size == "S"){
+        costPer = 10;
+    }
+    if(req.body.size == "M"){
+        costPer = 15;
+    }
+    if(req.body.size == "L"){
+        costPer = 20;
+    }
+    var hold = costPer * req.body.quantity
+
     // instantiate a Order object with the new values from the form submission
     var order = new Order({
         _id: _id,
@@ -98,7 +121,7 @@ router.post('/edit/:_id', (req, res) => {
         type: req.body.type,
         size: req.body.size,
         quantity: req.body.quantity,
-        total: req.body.total
+        total: hold
     })
 
     // update the document with the selected id, passing in our new order object to replace the old vals

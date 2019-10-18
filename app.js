@@ -7,7 +7,6 @@ var logger = require('morgan');
 var indexRouter = require('./controllers/index');
 
 // add connection to new controller
-const tasksRouter = require('./controllers/tasks');
 const ordersRouter = require('./controllers/orders');
 
 var app = express();
@@ -41,9 +40,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-//
-// // map any url's starting with "/tasks" to the tasks controller
-app.use('/tasks', tasksRouter);
+
 // map any url's starting with "/orders" to the orders controller
 app.use('/orders', ordersRouter);
 
