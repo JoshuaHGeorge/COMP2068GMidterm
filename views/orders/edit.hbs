@@ -1,0 +1,95 @@
+<h1>Task Details</h1>
+
+<form method="post">
+
+    <fieldset class="form-group">
+        <label class="control-label col-md-2">First Name: *</label>
+        <input name="firstName" id="firstName" required value="{{ order.firstName }}" />
+    </fieldset>
+    <fieldset class="form-group">
+        <label class="control-label col-md-2">Last Name: *</label>
+        <input name="lastName" id="lastName" required value="{{ order.lastName }}" />
+    </fieldset>
+
+    <fieldset class="form-group">
+        <label class="control-label col-md-2">Type: *</label>
+        <select name="Type" id="Type">
+            <script>
+                // reference the select element
+                var quantity = document.getElementById('size')
+                var option1 = document.createElement('option')
+                var option2 = document.createElement('option')
+                var option3 = document.createElement('option')
+                option1.innerHTML = "Cheese"
+                option2.innerHTML = "Veggie"
+                option3.innerHTML = "Meat"
+                if ({{order.type}} == "Cheese") {
+                    option1.selected = true
+                }
+                if ({{order.type}} == "Veggie") {
+                    option2.selected = true
+                }
+                if ({{order.type}} == "Meat") {
+                    option3.selected = true
+                }
+                priority.append(option1)
+                priority.append(option2)
+                priority.append(option3)
+            </script>
+        </select>
+    </fieldset>
+
+    <fieldset class="form-group">
+        <label class="control-label col-md-2">Size: *</label>
+        <select name="Size" id="Size">
+            <script>
+                // reference the select element
+                var quantity = document.getElementById('size')
+                var option1 = document.createElement('option')
+                var option2 = document.createElement('option')
+                var option3 = document.createElement('option')
+                option1.innerHTML = "S"
+                option2.innerHTML = "M"
+                option3.innerHTML = "L"
+                if ({{order.size}} == "S") {
+                    option1.selected = true
+                }
+                if ({{order.size}} == "M") {
+                    option2.selected = true
+                }
+                if ({{order.size}} == "L") {
+                    option3.selected = true
+                }
+                priority.append(option1)
+                priority.append(option2)
+                priority.append(option3)
+            </script>
+        </select>
+    </fieldset>
+
+    <fieldset class="form-group">
+        <label class="control-label col-md-2">Quantity: *</label>
+        <select name="quantity" id="quantity">
+            <script>
+                // reference the select element
+                var quantity = document.getElementById('quantity')
+                for (var i = 1; i <= 10; i++) {
+                    // create a new option inside the select element
+                    var option = document.createElement('option')
+
+                    // display the current counter as the new option text
+                    option.innerHTML = i.toString()
+
+                    if ({{order.priority}} == i.toString()) {
+                        option.selected = true
+                    }
+
+                    // add the new <option> element to the <select> object
+                    priority.append(option)
+                }
+            </script>
+        </select>
+    </fieldset>
+    <input type="hidden" name="_id" id="_id" value="{{order._id}}" />
+    <button class="col-md-offset-2 btn btn-primary">Save</button>
+</form>
